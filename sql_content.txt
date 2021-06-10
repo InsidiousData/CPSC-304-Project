@@ -5,6 +5,25 @@ CREATE TABLE BasketballTeam(
     BT_Total_games_played INTEGER
 );
 
+CREATE TABLE HeadCoach( 
+HC_Id INTEGER PRIMARY KEY, 
+HC_Name CHAR(50), 
+HC_Address CHAR(50), 
+Number_of_Games INTEGER, 
+HC_Start_Date DATE,  
+BT_Name CHAR(50) UNIQUE NOT NULL,
+FOREIGN KEY (BT_Name) REFERENCES BasketballTeam(BT_Name),
+FOREIGN KEY (HC_Name, Number_of_Games) REFERENCES HeadCoach_Years(HC_Name, Number_of_Games)
+);
+
+CREATE TABLE HeadCoach_Years(
+HC_Name CHAR(50), 
+Number_of_Games INTEGER, 
+HC_Years_of_Experience INTEGER,
+PRIMARY KEY (HC_Name, Number_of_Games)
+);
+
+
 INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('New York Knicks','40','40','80');
 
 INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Lakers','32','45','78');
@@ -14,5 +33,20 @@ INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_
 INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Clippers','40','35','75');
 
 INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Houston Rockets','40','42','82');
+
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 11, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 12, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 13, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 14, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 10, 12);
+
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (9612, 'John',  '123 Anywhere Street',10, 10-10-2000, 'New York Knicks');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (56123, 'John', '123 Anywhere Street', 11, 10-10-2000, 'Brooklyn Nets');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76120, 'John', '123 Anywhere Street', 12, 10-10-2000, 'Los Angeles Lakers');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76567, 'John', '123 Anywhere Street', 13, 10-10-2000, 'Los Angeles Clippers');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (78920, 'John', '123 Anywhere Street', 14, 2000-10-10, 'Houston Rockets');
+
+
+
 
 
