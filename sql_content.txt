@@ -1,0 +1,18 @@
+CREATE TABLE BasketballTeam(
+    BT_Name CHAR(50) PRIMARY KEY,
+    BT_Total_wins INTEGER,
+    BT_Total_losses INTEGER,
+    BT_Total_games_played INTEGER
+);
+
+INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('New York Knicks','40','40','80');
+
+INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Lakers','32','45','78');
+
+INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Brooklyn Nets','50','32','82');
+
+INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Clippers','40','35','75');
+
+INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Houston Rockets','40','42','82');
+
+
