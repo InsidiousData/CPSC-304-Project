@@ -6,7 +6,7 @@
 include 'connect.php';
 $conn = OpenCon();
 echo "Connected Successfully";
-$sql = "SELECT BT_Name, BT_Total_wins, BT_Total_losses, BT_Total_games_played FROM basketballteam";
+$sql = "SELECT BT_Name, BT_Total_wins, BT_Total_losses, BT_Total_games_played FROM BasketballTeam";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
