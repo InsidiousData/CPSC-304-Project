@@ -1,12 +1,8 @@
-CREATE TABLE HeadCoach( 
-HC_Id INTEGER PRIMARY KEY, 
-HC_Name CHAR(50), 
-HC_Address CHAR(50), 
-Number_of_Games INTEGER, 
-HC_Start_Date DATE,  
-BT_Name CHAR(50) UNIQUE NOT NULL,
-FOREIGN KEY (BT_Name) REFERENCES BasketballTeam(BT_Name),
-FOREIGN KEY (HC_Name, Number_of_Games) REFERENCES HeadCoach_Years(HC_Name, Number_of_Games)
+CREATE TABLE BasketballTeam(
+    BT_Name CHAR(50) PRIMARY KEY,
+    BT_Total_wins INTEGER,
+    BT_Total_losses INTEGER,
+    BT_Total_games_played INTEGER
 );
 
 
