@@ -1,3 +1,28 @@
+DROP TABLE Has_A_Contract;
+DROP TABLE Plays_With;
+DROP TABLE Sponsors;
+DROP TABLE Played;
+DROP TABLE Played_At;
+DROP TABLE Refereed;
+DROP TABLE Shooting_Guard;
+DROP TABLE Small_Forward;
+DROP TABLE Power_Forward;
+DROP TABLE Point_Guard;
+DROP TABLE Center;
+DROP TABLE BasketballPlayer_PlaysFor;
+DROP TABLE headcoach;
+DROP TABLE Manager;
+DROP TABLE BasketballTeam;
+DROP TABLE BasketballTeam_Total_Games;
+DROP TABLE Referee;
+DROP TABLE HeadCoach_Years;
+DROP TABLE Arena;
+DROP TABLE Game;
+DROP TABLE Sponsorship;
+
+
+
+
 CREATE TABLE Sponsorship(
     S_Name CHAR(50) PRIMARY KEY,
     S_Founding_Date DATE
@@ -31,8 +56,6 @@ CREATE TABLE Sponsorship(
     BT_Total_wins INTEGER,
     BT_Total_losses INTEGER,
     BT_Total_games_played INTEGER,
-    M_Id INTEGER UNIQUE NOT NULL,
-    HC_Id INTEGER UNIQUE NOT NULL,
     FOREIGN KEY(BT_Total_Wins, BT_Total_Losses) REFERENCES BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses)
 ); CREATE TABLE Manager(
     M_Id INTEGER PRIMARY KEY,
