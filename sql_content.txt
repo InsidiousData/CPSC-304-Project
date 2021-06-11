@@ -1,3 +1,17 @@
+CREATE TABLE BasketballTeam(
+    BT_Name CHAR(50) PRIMARY KEY,
+    BT_Total_wins INTEGER,
+    BT_Total_losses INTEGER,
+    BT_Total_games_played INTEGER
+);
+
+CREATE TABLE HeadCoach_Years(
+HC_Name CHAR(50), 
+Number_of_Games INTEGER, 
+HC_Years_of_Experience INTEGER,
+PRIMARY KEY (HC_Name, Number_of_Games)
+);
+
 CREATE TABLE HeadCoach( 
 HC_Id INTEGER PRIMARY KEY, 
 HC_Name CHAR(50), 
@@ -9,20 +23,6 @@ FOREIGN KEY (BT_Name) REFERENCES BasketballTeam(BT_Name),
 FOREIGN KEY (HC_Name, Number_of_Games) REFERENCES HeadCoach_Years(HC_Name, Number_of_Games)
 );
 
-CREATE TABLE HeadCoach_Years(
-HC_Name CHAR(50), 
-Number_of_Games INTEGER, 
-HC_Years_of_Experience INTEGER,
-PRIMARY KEY (HC_Name, Number_of_Games)
-);
-
-CREATE TABLE BasketballTeam(
-    BT_Name CHAR(50) PRIMARY KEY,
-    BT_Total_wins INTEGER,
-    BT_Total_losses INTEGER,
-    BT_Total_games_played INTEGER
-);
-
 CREATE TABLE BasketballTeam_Total_Games(
 BT_Total_Wins INTEGER, 
 BT_Total_Losses INTEGER, 
@@ -30,19 +30,17 @@ BT_Total_Games INTEGER,
 PRIMARY KEY (BT_Total_Wins, BT_Total_Losses)
 );
 
+INSERT INTO BasketballTeam(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('New York Knicks','40','40','80');
+INSERT INTO BasketballTeam(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Lakers','32','45','78');
+INSERT INTO BasketballTeam(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Brooklyn Nets','50','32','82');
+INSERT INTO BasketballTeam(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Clippers','40','35','75');
+INSERT INTO BasketballTeam(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Houston Rockets','40','42','82');
 
-
-INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('New York Knicks','40','40','80');
-INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Lakers','32','45','78');
-INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Brooklyn Nets','50','32','82');
-INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Los Angeles Clippers','40','35','75');
-INSERT INTO `basketballteam`(`BT_Name`, `BT_Total_wins`, `BT_Total_losses`, `BT_Total_games_played`) VALUES ('Houston Rockets','40','42','82');
-
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 40, 80)
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (50, 32, 82)
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (32, 45, 78)
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 35, 75)
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 42, 82)
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 40, 80);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (50, 32, 82);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (32, 45, 78);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 35, 75);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 42, 82);
 
 
 INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 11, 12);
