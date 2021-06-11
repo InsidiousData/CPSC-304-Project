@@ -193,11 +193,42 @@ FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
 
 
 
-INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56021, 'John', 10, '123 Anywhere Street', '2000-10-10', 'New York Knicks');
-INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56143, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Brooklyn Nets');
-INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (521, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Los Angeles Lakers');
-INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56123, 'John', 10, '123 Anywhere Street', '2000-10-10','Los Angeles Clippers');
-INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (33321, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Houston Rockets');
+INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Nike', '1950-09-12');
+INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Adidas', '1970-10-17');
+INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Gatorade', '1989-02-02');
+INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Kia', '1990-09-10');
+INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Wish', '2006-09-12');
+
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (27189, 90, 99, '2021-09-12');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (27980, 100, 99, '2021-09-14');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (41180, 92, 99, '2021-09-17');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (17193, 95, 111, '2021-09-18');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (77193, 95, 111, '2021-09-20');
+
+INSERT into Arena(A_Name, A_Location, Capacity) values ('Staples Center', 'Los Angeles', 50000);
+INSERT into Arena(A_Name, A_Location, Capacity) values ('Barclay Center', 'Brooklyn', 50000);
+INSERT into Arena(A_Name, A_Location, Capacity) values ('Madison Square Garden', 'New York', 50000);
+INSERT into Arena(A_Name, A_Location, Capacity) values ('Air Canada Centre', 'Toronto', 50000);
+INSERT into Arena(A_Name, A_Location, Capacity) values ('Toyota Centre', 'Houston', 50000);
+
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 11, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 12, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 13, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 14, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 10, 12);
+
+INSERT into referee(R_Id, R_Name, R_Age) values (456231, 'Zach Zarba', 46);
+INSERT into referee(R_Id, R_Name, R_Age) values (456232, 'Monty McCutchen', 55);
+INSERT into referee(R_Id, R_Name, R_Age) values (456233, 'Natalie Sago', 32);
+INSERT into referee(R_Id, R_Name, R_Age) values (456234, 'Ashley Moyer-Gleich', 33);
+INSERT into referee(R_Id, R_Name, R_Age) values (456235, 'Joey Crawford', 69);
+
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 40, 80);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (50, 32, 82);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (32, 45, 78);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 35, 75);
+INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 42, 82);
+
 
 INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('New York Knicks',32,45);
 INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Los Angeles Lakers',40,35);
@@ -205,11 +236,17 @@ INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Bro
 INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Los Angeles Clippers',40,42);
 INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Houston Rockets',50,32);
 
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 40, 80);
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (50, 32, 82);
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (32, 45, 78);
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 35, 75);
-INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 42, 82);
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56021, 'John', 10, '123 Anywhere Street', '2000-10-10', 'New York Knicks');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56143, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Brooklyn Nets');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (521, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Los Angeles Lakers');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56123, 'John', 10, '123 Anywhere Street', '2000-10-10','Los Angeles Clippers');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (33321, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Houston Rockets');
+
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (9612, 'John',  '123 Anywhere Street',10, '2000-10-10', 'New York Knicks');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (56123, 'John', '123 Anywhere Street', 11, '2000-10-10', 'Brooklyn Nets');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76120, 'John', '123 Anywhere Street', 12, '2000-10-10', 'Los Angeles Lakers');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76567, 'John', '123 Anywhere Street', 13, '2000-10-10', 'Los Angeles Clippers');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (78920, 'John', '123 Anywhere Street', 14, '2000-10-10', 'Houston Rockets');
 
 INSERT into BasketballPlayer_playsfor(BP_Id, age, value_over_replacement_player, player_efficiency_rating, box_plus_minus, points_per_game, assist_per_game, steals_per_game, rebounds_per_game, three_point_attempt_rate, weight, field_goal_percentage, height, win_shares, years_played, name, BT_Name) values (21870, 25, 1.5, 28.1, 1.4, 23.7, 3.8, 4.1, 6.4, 8.9, 110.2, 50.3, 195.9, 3.0, 5, 'Kawhi Leonard', 'Los Angeles Clippers');
 INSERT into BasketballPlayer_playsfor(BP_Id, age, value_over_replacement_player, player_efficiency_rating, box_plus_minus, points_per_game, assist_per_game, steals_per_game, rebounds_per_game, three_point_attempt_rate, weight, field_goal_percentage, height, win_shares, years_played, name, BT_Name) values (89014, 27, 1.5, 28.1, 1.4, 27.7, 3.8, 3.1, 9.4, 8.9, 115.2, 45.3, 200.1, 3.0, 7, 'Mitchell Robinson', 'New York Knicks');
@@ -277,41 +314,6 @@ INSERT INTO Point_Guard(BP_Id, assist_percentage,turnover_percentage) values (84
 INSERT INTO Point_Guard(BP_Id, assist_percentage,turnover_percentage) values (845742, 87.0, 69.0);
 INSERT INTO Point_Guard(BP_Id, assist_percentage,turnover_percentage) values (845743, 27.1, 69.1);
 
-INSERT into referee(R_Id, R_Name, R_Age) values (456231, 'Zach Zarba', 46);
-INSERT into referee(R_Id, R_Name, R_Age) values (456232, 'Monty McCutchen', 55);
-INSERT into referee(R_Id, R_Name, R_Age) values (456233, 'Natalie Sago', 32);
-INSERT into referee(R_Id, R_Name, R_Age) values (456234, 'Ashley Moyer-Gleich', 33);
-INSERT into referee(R_Id, R_Name, R_Age) values (456235, 'Joey Crawford', 69);
-
-INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Nike', '1950-09-12');
-INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Adidas', '1970-10-17');
-INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Gatorade', '1989-02-02');
-INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Kia', '1990-09-10');
-INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Wish', '2006-09-12');
-
-INSERT into Game(G_Id, Homescore, Awayscore, Date) values (27189, 90, 99, '2021-09-12');
-INSERT into Game(G_Id, Homescore, Awayscore, Date) values (27980, 100, 99, '2021-09-14');
-INSERT into Game(G_Id, Homescore, Awayscore, Date) values (41180, 92, 99, '2021-09-17');
-INSERT into Game(G_Id, Homescore, Awayscore, Date) values (17193, 95, 111, '2021-09-18');
-INSERT into Game(G_Id, Homescore, Awayscore, Date) values (77193, 95, 111, '2021-09-20');
-
-INSERT into Arena(A_Name, A_Location, Capacity) values ('Staples Center', 'Los Angeles', 50000);
-INSERT into Arena(A_Name, A_Location, Capacity) values ('Barclay Center', 'Brooklyn', 50000);
-INSERT into Arena(A_Name, A_Location, Capacity) values ('Madison Square Garden', 'New York', 50000);
-INSERT into Arena(A_Name, A_Location, Capacity) values ('Air Canada Centre', 'Toronto', 50000);
-INSERT into Arena(A_Name, A_Location, Capacity) values ('Toyota Centre', 'Houston', 50000);
-
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 11, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 12, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 13, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 14, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 10, 12);
-
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (9612, 'John',  '123 Anywhere Street',10, '2000-10-10', 'New York Knicks');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (56123, 'John', '123 Anywhere Street', 11, '2000-10-10', 'Brooklyn Nets');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76120, 'John', '123 Anywhere Street', 12, '2000-10-10', 'Los Angeles Lakers');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76567, 'John', '123 Anywhere Street', 13, '2000-10-10', 'Los Angeles Clippers');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (78920, 'John', '123 Anywhere Street', 14, '2000-10-10', 'Houston Rockets');
 
 INSERT into refereed(A_Name, A_Location, G_Id, R_Id) VALUES ('Staples Center', 'Los Angeles',27189,456231);
 INSERT into refereed(A_Name, A_Location, G_Id, R_Id) VALUES ('Barclay Center', 'Brooklyn',27980,456232);
