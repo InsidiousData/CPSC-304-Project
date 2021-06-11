@@ -1,10 +1,3 @@
-CREATE TABLE BasketballTeam(
-    BT_Name CHAR(50) PRIMARY KEY,
-    BT_Total_wins INTEGER,
-    BT_Total_losses INTEGER,
-    BT_Total_games_played INTEGER
-);
-
 
 CREATE TABLE Sponsorship(
 S_Name CHAR(50) PRIMARY KEY, 
@@ -44,6 +37,14 @@ PRIMARY KEY (R_Id)
 );
 
 
+CREATE TABLE BasketballTeam_Total_Games(
+BT_Total_Wins INTEGER, 
+BT_Total_Losses INTEGER, 
+BT_Total_Games INTEGER,
+PRIMARY KEY (BT_Total_Wins, BT_Total_Losses)
+);
+
+
 CREATE TABLE BasketballTeam(
     BT_Name CHAR(50) PRIMARY KEY,
     BT_Total_wins INTEGER,
@@ -51,17 +52,10 @@ CREATE TABLE BasketballTeam(
     BT_Total_games_played INTEGER,
 M_Id INTEGER UNIQUE NOT NULL, 
 HC_Id INTEGER UNIQUE NOT NULL,
-FOREIGN KEY (M_Id) REFERENCES Manger(M_Id), 
-FOREIGN KEY (HC_Id) REFERENCES HeadCoaches(HC_Id),
 FOREIGN KEY (BT_Total_Wins, BT_Total_Losses) REFERENCES BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses)
 );
 
-CREATE TABLE BasketballTeam_Total_Games(
-BT_Total_Wins INTEGER, 
-BT_Total_Losses INTEGER, 
-BT_Total_Games INTEGER,
-PRIMARY KEY (BT_Total_Wins, BT_Total_Losses)
-);
+
 
 
 CREATE TABLE Manager( 
@@ -72,6 +66,18 @@ M_Address CHAR(50),
 M_Start_Date DATE, 
 BT_Name CHAR(50) UNIQUE NOT NULL,
 FOREIGN KEY (BT_Name) REFERENCES BasketballTeam(BT_Name)
+);
+
+CREATE TABLE headcoach(
+HC_Id INTEGER,
+HC_Name CHAR (50),
+HC_Address CHAR(50),
+Number_of_Games INTEGER,
+HC_Start_Date DATE,
+BT_Name CHAR(50),
+PRIMARY KEY( HC_Id),
+FOREIGN KEY (HC_Name, Number_of_Games) REFERENCES headcoach_years(HC_Name, Number_of_Games),
+FOREIGN KEY (BT_Name) REFERENCES basketballteam(BT_Name)
 );
 
 
@@ -193,11 +199,11 @@ INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Dat
 INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56123, 'John', 10, '123 Anywhere Street', '2000-10-10','Los Angeles Clippers');
 INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (33321, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Houston Rockets');
 
-INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses, HC_Id, M_Id) VALUES ('New York Knicks',32,45,9612,521);
-INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses, HC_Id, M_Id) VALUES ('Los Angeles Lakers',40,35,56123,33321);
-INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses, HC_Id, M_Id) VALUES ('Brooklyn Nets',40,40,76120,56021);
-INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses, HC_Id, M_Id) VALUES ('Los Angeles Clippers',40,42,76567,56123);
-INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses, HC_Id, M_Id) VALUES ('Houston Rockets',50,32,78920,56143);
+INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('New York Knicks',32,45);
+INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Los Angeles Lakers',40,35);
+INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Brooklyn Nets',40,40);
+INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Los Angeles Clippers',40,42);
+INSERT INTO Basketballteam(BT_Name, BT_Total_wins, BT_Total_losses) VALUES ('Houston Rockets',50,32);
 
 INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (40, 40, 80);
 INSERT into BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses, BT_Total_Games) values (50, 32, 82);
