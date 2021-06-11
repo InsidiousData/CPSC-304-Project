@@ -1,55 +1,37 @@
-
 CREATE TABLE Sponsorship(
-S_Name CHAR(50) PRIMARY KEY, 
-S_Founding_Date DATE
-);
-
-
-CREATE TABLE Game(
-G_Id INTEGER PRIMARY KEY, 
-Homescore INTEGER, 
-Awayscore INTEGER, 
-Date DATE
-);
-
-
-CREATE TABLE Arena(
-A_Name CHAR(50), 
-A_Location CHAR(50), 
-Capacity INTEGER,
-PRIMARY KEY(A_Name, A_Location)
-);
-
-
-CREATE TABLE HeadCoach_Years(
-HC_Name CHAR(50), 
-Number_of_Games INTEGER, 
-HC_Years_of_Experience INTEGER,
-PRIMARY KEY (HC_Name, Number_of_Games)
-);
-
-
-CREATE TABLE Referee(
-R_Id INTEGER,
-R_Name CHAR(50), 
-R_Age INTEGER,
-PRIMARY KEY (R_Id)
-);
-
-
-CREATE TABLE BasketballTeam_Total_Games(
-BT_Total_Wins INTEGER, 
-BT_Total_Losses INTEGER, 
-BT_Total_Games INTEGER,
-PRIMARY KEY (BT_Total_Wins, BT_Total_Losses)
-);
-
-
-CREATE TABLE BasketballTeam(
+    S_Name CHAR(50) PRIMARY KEY,
+    S_Founding_Date DATE
+); CREATE TABLE Game(
+    G_Id INTEGER PRIMARY KEY,
+    Homescore INTEGER,
+    Awayscore INTEGER,
+    DATE DATE
+); CREATE TABLE Arena(
+    A_Name CHAR(50),
+    A_Location CHAR(50),
+    Capacity INTEGER,
+    PRIMARY KEY(A_Name, A_Location)
+); CREATE TABLE HeadCoach_Years(
+    HC_Name CHAR(50),
+    Number_of_Games INTEGER,
+    HC_Years_of_Experience INTEGER,
+    PRIMARY KEY(HC_Name, Number_of_Games)
+); CREATE TABLE Referee(
+    R_Id INTEGER,
+    R_Name CHAR(50),
+    R_Age INTEGER,
+    PRIMARY KEY(R_Id)
+); CREATE TABLE BasketballTeam_Total_Games(
+    BT_Total_Wins INTEGER,
+    BT_Total_Losses INTEGER,
+    BT_Total_Games INTEGER,
+    PRIMARY KEY(BT_Total_Wins, BT_Total_Losses)
+); CREATE TABLE BasketballTeam(
     BT_Name CHAR(50) PRIMARY KEY,
     BT_Total_wins INTEGER,
     BT_Total_losses INTEGER,
     BT_Total_games_played INTEGER,
+<<<<<<< HEAD
 FOREIGN KEY (BT_Total_Wins, BT_Total_Losses) REFERENCES BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses)
 );
 
@@ -214,6 +196,129 @@ INSERT into Arena(A_Name, A_Location, Capacity) values ('Barclay Center', 'Brook
 INSERT into Arena(A_Name, A_Location, Capacity) values ('Madison Square Garden', 'New York', 50000);
 INSERT into Arena(A_Name, A_Location, Capacity) values ('Air Canada Centre', 'Toronto', 50000);
 INSERT into Arena(A_Name, A_Location, Capacity) values ('Toyota Centre', 'Houston', 50000);
+=======
+    M_Id INTEGER UNIQUE NOT NULL,
+    HC_Id INTEGER UNIQUE NOT NULL,
+    FOREIGN KEY(BT_Total_Wins, BT_Total_Losses) REFERENCES BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses)
+); CREATE TABLE Manager(
+    M_Id INTEGER PRIMARY KEY,
+    M_Name CHAR(50),
+    M_Years_of_Experience INTEGER,
+    M_Address CHAR(50),
+    M_Start_Date DATE,
+    BT_Name CHAR(50) UNIQUE NOT NULL,
+    FOREIGN KEY(BT_Name) REFERENCES BasketballTeam(BT_Name)
+); CREATE TABLE headcoach(
+    HC_Id INTEGER,
+    HC_Name CHAR(50),
+    HC_Address CHAR(50),
+    Number_of_Games INTEGER,
+    HC_Start_Date DATE,
+    BT_Name CHAR(50),
+    PRIMARY KEY(HC_Id),
+    FOREIGN KEY(HC_Name, Number_of_Games) REFERENCES headcoach_years(HC_Name, Number_of_Games),
+    FOREIGN KEY(BT_Name) REFERENCES basketballteam(BT_Name)
+); CREATE TABLE BasketballPlayer_PlaysFor(
+    BP_Id INTEGER PRIMARY KEY,
+    age INTEGER,
+    value_over_replacement_player REAL,
+    player_efficiency_rating REAL,
+    box_plus_minus REAL,
+    points_per_game REAL,
+    assist_per_game REAL,
+    steals_per_game REAL,
+    rebounds_per_game REAL,
+    three_point_attempt_rate REAL,
+    weight REAL,
+    field_goal_percentage REAL,
+    height REAL,
+    win_shares REAL,
+    years_played INTEGER NOT NULL,
+    NAME CHAR(50),
+    BT_Name CHAR(50) NOT NULL,
+    FOREIGN KEY(BT_Name) REFERENCES BasketballTeam(BT_Name) ON DELETE NO ACTION ON UPDATE CASCADE
+); CREATE TABLE Center(
+    BP_Id INTEGER PRIMARY KEY,
+    blocks_per_game REAL,
+    block_percentage REAL,
+    FOREIGN KEY(BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+); CREATE TABLE Power_Forward(
+    BP_Id INTEGER PRIMARY KEY,
+    defensive_rebounds_per_game REAL,
+    offensive_rebounds_per_game REAL,
+    FOREIGN KEY(BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+); CREATE TABLE Small_Forward(
+    BP_Id INTEGER PRIMARY KEY,
+    usage_percentage REAL,
+    two_point_field_goal_percentage REAL,
+    FOREIGN KEY(BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+); CREATE TABLE Shooting_Guard(
+    BP_Id INTEGER PRIMARY KEY,
+    three_point_field_goal_percentage REAL,
+    real_shooting_percentage REAL,
+    FOREIGN KEY(BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+); CREATE TABLE Refereed(
+    A_Name CHAR(50),
+    A_Location CHAR(50),
+    G_Id INTEGER,
+    R_Id INTEGER,
+    PRIMARY KEY(A_Name, A_Location, G_Id, R_Id),
+    FOREIGN KEY(A_Name, A_Location) REFERENCES Arena(A_Name, A_Location),
+    FOREIGN KEY(G_Id) REFERENCES Game(G_Id),
+    FOREIGN KEY(R_Id) REFERENCES Referee(R_Id)
+); CREATE TABLE Played_At(
+    A_Name CHAR(50),
+    A_Location CHAR(50),
+    G_Id INTEGER,
+    PRIMARY KEY(A_Name, A_Location, G_Id),
+    FOREIGN KEY(A_Name, A_Location) REFERENCES Arena(A_Name, A_Location),
+    FOREIGN KEY(G_Id) REFERENCES Game(G_Id)
+); CREATE TABLE Played(
+    A_Name CHAR(50),
+    A_Location CHAR(50),
+    G_Id INTEGER,
+    BT_Name CHAR(50),
+    PRIMARY KEY(
+        A_Name,
+        A_Location,
+        G_Id,
+        BT_Name
+    ),
+    FOREIGN KEY(A_Name, A_Location) REFERENCES Arena(A_Name, A_Location),
+    FOREIGN KEY(G_Id) REFERENCES Game(G_Id),
+    FOREIGN KEY(BT_Name) REFERENCES BasketballTeam(BT_Name)
+); CREATE TABLE Sponsors(
+    S_Name CHAR(50),
+    BT_Name CHAR(50),
+    Funding INTEGER,
+    Starting_Date DATE,
+    PRIMARY KEY(S_Name, BT_Name),
+    FOREIGN KEY(S_Name) REFERENCES Sponsorship(S_Name),
+    FOREIGN KEY(BT_Name) REFERENCES BasketballTeam(BT_Name)
+); CREATE TABLE Plays_With(
+    Player1_BP_Id INTEGER,
+    Player2_BP_Id INTEGER,
+    PRIMARY KEY(Player1_BP_Id, Player2_BP_Id),
+    FOREIGN KEY(Player1_BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id),
+    FOREIGN KEY(Player2_BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+); CREATE TABLE Has_A_Contract(
+    Contract_Money INTEGER,
+    Contract_Length INTEGER,
+    BP_Id INTEGER,
+    PRIMARY KEY(
+        Contract_Money,
+        Contract_Length,
+        BP_Id
+    ),
+    FOREIGN KEY(BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+);
+
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56021, 'John', 10, '123 Anywhere Street', '2000-10-10', 'New York Knicks');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56143, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Brooklyn Nets');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (521, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Los Angeles Lakers');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56123, 'John', 10, '123 Anywhere Street', '2000-10-10','Los Angeles Clippers');
+INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (33321, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Houston Rockets');
+>>>>>>> a6efef4b2c58f2e5f41412b63a8b93fa372fd75b
 
 INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 11, 12);
 INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 12, 12);
