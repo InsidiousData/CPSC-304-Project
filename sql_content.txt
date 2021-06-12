@@ -49,7 +49,6 @@ CREATE TABLE BasketballTeam(
     BT_Name CHAR(50) PRIMARY KEY,
     BT_Total_wins INTEGER,
     BT_Total_losses INTEGER,
-    BT_Total_games_played INTEGER,
 FOREIGN KEY (BT_Total_Wins, BT_Total_Losses) REFERENCES BasketballTeam_Total_Games(BT_Total_Wins, BT_Total_Losses)
 );
 
