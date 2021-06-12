@@ -93,6 +93,70 @@
 
         ?>
 
+        <h2>Find the Number of BasketballPlayer in a Team </h2>
+
+        <form method="POST" action="test.php">
+            <input type="hidden" id="findNumberQueryRequest" name="findNumberQueryRequest">
+            BasketballTeam Name: <input type="text" name="BTName"> <br /><br />
+
+            <input type="submit" value="Find" name="findSubmit"></p>
+        </form>
+
+<?php
+    $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        if ($link === false) {
+            die("ERROR: Could not connect. " . mysqli_connect_error());
+        }
+        if (isset($_POST['findSubmit'])) {
+            $BTName = $_POST['BTName'];
+            $sql = "SELECT COUNT(*) FROM BasketBallPlayer_playsfor WHERE  BT_Name = '$BTName'";
+            $result = $link->query($sql);
+
+            if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+            echo "Number of players in " . $BTName . ": " . $row["COUNT(*)"] . "<br>";
+            }
+        } else {
+        echo "0 results";
+        }
+    }
+
+?>
+
+<h2>Find BasketballPlayer with the Highest Points per Game in a Team </h2>
+
+<form method="POST" action="test.php">
+    <input type="hidden" id="HighNumberQueryRequest" name="HighNumberQueryRequest">
+    <input type="submit" value="Find" name="HighSubmit"></p>
+</form>
+
+<?php
+$link = mysqli_connect("localhost", "root", "root", "cpsc304");
+if ($link === false) {
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+if (isset($_POST['HighSubmit'])) {
+    $sql = "SELECT max, BT_Name, name
+    FROM ( SELECT MAX(points_per_game) as max, BT_Name, name
+           FROM basketballplayer_playsfor
+           GROUP BY BT_Name)as a
+            ORDER BY max DESC;" ;
+    $result = $link->query($sql);
+
+    if ($result->num_rows > 0) {
+     $MYCUSTOMTAB='     ';
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . ".........Points per game: " . $row["max"] . "<br>";
+    }
+} else {
+echo "0 results";
+}
+}
+
+?>
+
         <h2>Current Basketball Teams Avaliable:</h2>
 
         <?php
