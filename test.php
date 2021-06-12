@@ -79,7 +79,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -110,7 +110,7 @@
         </form>
 
 <?php
-    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+    $link = mysqli_connect("localhost", "root", "root", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -132,7 +132,7 @@
 ?>
 
 <?php
-    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+    $link = mysqli_connect("localhost", "root", "root", "cpsc304");
     if ($link === false) {
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
@@ -165,7 +165,7 @@
 </form>
 
 <?php
-$link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+$link = mysqli_connect("localhost", "root", "root", "cpsc304");
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
