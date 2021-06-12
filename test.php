@@ -62,6 +62,13 @@
             <input type="submit" value="Delete" name="deleteSubmit"></p>
         </form>
 
+        <h2>Find Players by Team</h2>
+        <form method="POST" action="test.php">
+            <input type="hidden" id="joinQueryRequest" name="joinQueryRequest">
+            BasketBall Team: <input type="text" name="TeamName"><br /><br />
+            <input type="submit" value="Join" name="joinSubmit"></p>
+        <form>
+
         <h2>Search Basketball Team with More Than x Wins</h2>
 
         <form method="POST" action="test.php">
@@ -72,7 +79,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -103,7 +110,7 @@
         </form>
 
 <?php
-    $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -124,6 +131,30 @@
 
 ?>
 
+<?php
+    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+    if ($link === false) {
+        die("ERROR: Could not connect. " . mysqli_connect_error());
+    }
+    if (isset($_POST['joinSubmit'])) {
+        $BT_Name = $_POST['TeamName'];
+        $sql = "SELECT b.BT_Name AS team, b.BT_Total_wins AS wins, b.BT_Total_losses AS loss, p.name AS p_name, p.age AS age, h.HC_Name AS head 
+        FROM BasketballTeam b INNER JOIN BasketballPlayer_PlaysFor p ON p.BT_Name = b.BT_Name INNER JOIN HeadCoach h ON h.BT_Name = p.BT_Name
+        WHERE b.BT_Name = '$BT_Name'";
+        $result = $link->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "Player Name: " . $row["p_name"] . " ....Player Age: " . $row["age"] . " ....Head Coach: " . $row["head"] . " ....Team: " . $row["team"] . 
+                " ....Team Total Wins: " . $row["wins"] . " ....Team Total Losses: "  . $row["loss"] . "<br>"; 
+            }
+        } else {
+            echo "0 results";
+        }
+        
+    }
+
+?>
+
 <h2>Find BasketballPlayer with the Highest Points per Game in a Team </h2>
 
 <form method="POST" action="test.php">
@@ -132,7 +163,7 @@
 </form>
 
 <?php
-$link = mysqli_connect("localhost", "root", "root", "cpsc304");
+$link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
@@ -160,7 +191,7 @@ echo "0 results";
         <h2>Current Basketball Teams Avaliable:</h2>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
 
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -228,6 +259,7 @@ echo "0 results";
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
             }
         }
+
 
 
 
