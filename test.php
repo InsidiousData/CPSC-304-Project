@@ -193,7 +193,7 @@ echo "0 results";
         <h2>Current Basketball Teams Avaliable:</h2>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
 
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
