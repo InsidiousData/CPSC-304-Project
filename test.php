@@ -124,7 +124,7 @@
 
 ?>
 
-<h2>Find BasketballPlayer with the Highest Points per Game in a Team </h2>
+<h2>Find BasketballPlayer with the Points per Game higher than the average points per Team</h2>
 
 <form method="POST" action="test.php">
     <input type="hidden" id="HighNumberQueryRequest" name="HighNumberQueryRequest">
@@ -137,18 +137,18 @@ if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 if (isset($_POST['HighSubmit'])) {
-    $sql = "SELECT max, BT_Name, name
-    FROM ( SELECT MAX(points_per_game) as max, BT_Name, name
-           FROM basketballplayer_playsfor
-           GROUP BY BT_Name)as a
-            ORDER BY max DESC;" ;
+    $sql = "SELECT s.name, s.points_per_game, s.BT_Name 
+    FROM basketballplayer_playsfor s 
+    GROUP BY BT_Name 
+    HAVING AVG(s.points_per_game) >= ALL ( SELECT AVG(s2.points_per_game) FROM basketballplayer_playsfor s2)
+    ORDER BY s.points_per_game DESC";
     $result = $link->query($sql);
 
     if ($result->num_rows > 0) {
      $MYCUSTOMTAB='     ';
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . ".........Points per game: " . $row["max"] . "<br>";
+    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . ".........Points per game: " . $row["points_per_game"] . "<br>";
     }
 } else {
 echo "0 results";
