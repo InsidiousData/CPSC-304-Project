@@ -1,24 +1,25 @@
-DROP TABLE Has_A_Contract
-DROP TABLE Plays_With
-DROP TABLE Sponsors
-DROP TABLE Played
-DROP TABLE Played_At
-DROP TABLE Refereed
-DROP TABLE Shooting_Guard
-DROP TABLE Small_Forward
-DROP TABLE Power_Forward
-DROP TABLE Point_Guard
-DROP TABLE Center
-DROP TABLE headcoach
-DROP TABLE Manager
-DROP TABLE Referee
-DROP TABLE HeadCoach_Years
-DROP TABLE Arena
-DROP TABLE Game
-DROP TABLE Sponsorship
-DROP TABLE BasketballPlayer_PlaysFor
-DROP TABLE BasketballTeam
-DROP TABLE BasketballTeam_Total_Games
+DROP TABLE Has_A_Contract;
+DROP TABLE Plays_With;
+DROP TABLE Sponsors;
+DROP TABLE Played;
+DROP TABLE Played_At;
+DROP TABLE Refereed;
+DROP TABLE Shooting_Guard;
+DROP TABLE Small_Forward;
+DROP TABLE Power_Forward;
+DROP TABLE Point_Guard;
+DROP TABLE Center;
+DROP TABLE headcoach;
+DROP TABLE Manager;
+DROP TABLE Referee;
+DROP TABLE HeadCoach_Years;
+DROP TABLE Arena;
+DROP TABLE Game;
+DROP TABLE Has_A_Contract;
+DROP TABLE Sponsorship;
+DROP TABLE BasketballPlayer_PlaysFor;
+DROP TABLE BasketballTeam;
+DROP TABLE BasketballTeam_Total_Games;
 
 
 
