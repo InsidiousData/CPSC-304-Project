@@ -69,6 +69,12 @@
             <input type="submit" value="Join" name="joinSubmit"></p>
         <form>
 
+        <h2>Find All Referees</h2>
+        <form method="POST" action="test.php">
+            <input type="hidden" id="projectionRequest" name="projectionRequest">
+            <input type="submit" value="project" name="projectSubmit"></p>
+        <form>
+
         <h2>Search Basketball Team with More Than x Wins</h2>
 
         <form method="POST" action="test.php">
@@ -79,7 +85,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -110,7 +116,7 @@
         </form>
 
 <?php
-    $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -132,7 +138,7 @@
 ?>
 
 <?php
-    $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
     if ($link === false) {
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
@@ -155,6 +161,26 @@
 
 ?>
 
+<?php
+    $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+    if ($link === false) {
+        die("ERROR: Could not connect. " . mysqli_connect_error());
+    }
+    if (isset($_POST['projectSubmit'])) {
+        $sql = "SELECT R_Name FROM Referee";
+        $result = $link->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo $row["R_Name"] . "<br>"; 
+            }
+        } else {
+            echo "0 results";
+        }
+        
+    }
+
+?>
+
 <h2>Find BasketballPlayer with the Highest Points per Game in a Team </h2>
 
 <h2>Find BasketballPlayer with the Points per Game higher than the average points per Team</h2>
@@ -165,7 +191,7 @@
 </form>
 
 <?php
-$link = mysqli_connect("localhost", "root", "root", "cpsc304");
+$link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
@@ -193,7 +219,7 @@ echo "0 results";
         <h2>Current Basketball Teams Avaliable:</h2>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
 
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
