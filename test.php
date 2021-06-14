@@ -151,7 +151,7 @@
                 if (isset($_POST['joinSubmit'])) {
                     $BT_Name = $_POST['TeamName'];
                     $sql = "SELECT b.BT_Name AS team, b.BT_Total_wins AS wins, b.BT_Total_losses AS loss, p.name AS p_name, p.age AS age, h.HC_Name AS head, h.HC_Start_Date AS start 
-            FROM BasketballTeam b INNER JOIN BasketballPlayer_PlaysFor p ON p.BT_Name = b.BT_Name INNER JOIN HeadCoach h ON h.BT_Name = p.BT_Name
+            FROM BasketballTeam b INNER JOIN BasketballPlayer_PlaysFor p ON p.BT_Name = b.BT_Name INNER JOIN HeadCoach h ON h.BT_Name = b.BT_Name
             WHERE b.BT_Name = '$BT_Name'";
                     $result = $link->query($sql);
                     if ($result->num_rows > 0) {
