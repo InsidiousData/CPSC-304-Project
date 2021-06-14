@@ -130,6 +130,7 @@ BP_Id INTEGER PRIMARY KEY,
 blocks_per_game REAL, 
 block_percentage REAL,
 FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Power_Forward(
@@ -137,6 +138,7 @@ BP_Id INTEGER PRIMARY KEY,
 defensive_rebounds_per_game REAL, 
 offensive_rebounds_per_game REAL,
 FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Point_Guard(
@@ -144,6 +146,7 @@ BP_Id INTEGER PRIMARY KEY,
 assist_percentage REAL, 
 turnover_percentage REAL,
 FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Shooting_Guard(
@@ -151,6 +154,7 @@ BP_Id INTEGER PRIMARY KEY,
 three_point_field_goal_percentage REAL, 
 real_shooting_percentage REAL, 
 FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Small_Forward(
@@ -158,6 +162,7 @@ BP_Id INTEGER PRIMARY KEY,
 usage_percentage REAL, 
 two_point_field_goal_percentage REAL,
 FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+        ON DELETE CASCADE
 );
 
 
