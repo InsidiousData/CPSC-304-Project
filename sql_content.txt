@@ -365,6 +365,16 @@ INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Barclay Center',
 INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Barclay Center', 'Brooklyn', 17193, 'Los Angeles Clippers');
 INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Barclay Center', 'Brooklyn', 77193, 'Houston Rockets');
 
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (12345, 100, 99, '2021-09-14');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (68123, 92, 99, '2021-09-17');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (98543, 95, 111, '2021-09-18');
+INSERT into Game(G_Id, Homescore, Awayscore, Date) values (11223, 95, 111, '2021-09-20');
+
+INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Staples Center', 'Los Angeles', 12345, 'New York Knicks');
+INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Madison Square Garden', 'New York', 68123, 'New York Knicks');
+INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Air Canada Centre', 'Toronto', 98543, 'New York Knicks');
+INSERT into Played( A_Name, A_Location, G_ID, BT_Name) values ('Toyota Centre', 'Houston', 11223, 'New York Knicks');
+
 INSERT into Plays_With(Player1_BP_Id, Player2_BP_Id) values (89014, 34768);
 INSERT into Plays_With(Player1_BP_Id, Player2_BP_Id) values (32874, 31309);
 INSERT into Plays_With(Player1_BP_Id, Player2_BP_Id) values (31309, 89014);

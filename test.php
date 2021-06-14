@@ -36,7 +36,7 @@
             <input type="submit" value="Insert" name="insertSubmit"></p>
         </form>
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -87,7 +87,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -118,7 +118,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -144,7 +144,7 @@
             <input type="submit" value="Join" name="joinSubmit"></p>
             <form>
                 <?php
-                $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                $link = mysqli_connect("localhost", "root", "root", "cpsc304");
                 if ($link === false) {
                     die("ERROR: Could not connect. " . mysqli_connect_error());
                 }
@@ -158,7 +158,7 @@
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "Player Name: " . $row["p_name"] . "....Player Age: " . $row["age"] . "....Player ID: " . $row["id"] . "....Head Coach: " . $row["head"]
-                             . "....Head Coach Start: " . $row["start"] . "....Team: " . $row["team"] .
+                                . "....Head Coach Start: " . $row["start"] . "....Team: " . $row["team"] .
                                 "....Team Total Wins: " . $row["wins"] . "....Team Total Losses: "  . $row["loss"] . "<br>";
                         }
                     } else {
@@ -177,7 +177,7 @@
                     <form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -206,7 +206,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -239,7 +239,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -275,7 +275,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -308,7 +308,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
 
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -321,7 +321,7 @@
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    echo "test";
+                                    echo $row["BT_Name"];
                                 }
                             } else {
                                 echo "0 results";
@@ -336,7 +336,7 @@
                         <h2>Current Basketball Teams Avaliable:</h2>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
 
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
