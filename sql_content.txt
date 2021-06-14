@@ -1,3 +1,4 @@
+
 DROP TABLE Plays_With;
 DROP TABLE Sponsors;
 DROP TABLE Played;
@@ -237,11 +238,11 @@ INSERT into Arena(A_Name, A_Location, Capacity) values ('Madison Square Garden',
 INSERT into Arena(A_Name, A_Location, Capacity) values ('Air Canada Centre', 'Toronto', 50000);
 INSERT into Arena(A_Name, A_Location, Capacity) values ('Toyota Centre', 'Houston', 50000);
 
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 11, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 12, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 13, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 14, 12);
-INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('John', 10, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('Steve Nash', 11, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('Chuck Dalley', 12, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('Phil Jackson', 13, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('Steve Kerr', 14, 12);
+INSERT into HeadCoach_Years(HC_Name , Number_of_Games , HC_Years_of_Experience) values ('Scott Brooks', 10, 12);
 
 INSERT into Referee(R_Id, R_Name, R_Age) values (456231, 'Zach Zarba', 46);
 INSERT into Referee(R_Id, R_Name, R_Age) values (456232, 'Monty McCutchen', 55);
@@ -268,11 +269,11 @@ INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Dat
 INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (56123, 'John', 10, '123 Anywhere Street', '2000-10-10','Los Angeles Clippers');
 INSERT into Manager( M_Id, M_Name, M_Years_of_Experience, M_Address, M_Start_Date, BT_Name) values (33321, 'John', 10, '123 Anywhere Street', '2000-10-10', 'Houston Rockets');
 
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (9612, 'John',  '123 Anywhere Street',10, '2000-10-10', 'New York Knicks');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (56123, 'John', '123 Anywhere Street', 11, '2000-10-10', 'Brooklyn Nets');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76120, 'John', '123 Anywhere Street', 12, '2000-10-10', 'Los Angeles Lakers');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76567, 'John', '123 Anywhere Street', 13, '2000-10-10', 'Los Angeles Clippers');
-INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (78920, 'John', '123 Anywhere Street', 14, '2000-10-10', 'Houston Rockets');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (9612, 'Scott Brooks',  '1 Anywhere Street',10, '2010-10-10', 'New York Knicks');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date,  BT_Name) values (56123, 'Steve Nash', '2 Anywhere Street', 11, '2005-10-10', 'Brooklyn Nets');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76120, 'Chuck Dalley', '3 Anywhere Street', 12, '2020-11-12', 'Los Angeles Lakers');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (76567, 'Phil Jackson', '4 Anywhere Street', 13, '2000-10-10', 'Los Angeles Clippers');
+INSERT into HeadCoach( HC_Id, HC_Name, HC_Address, Number_of_Games, HC_Start_Date, BT_Name) values (78920, 'Steve Kerr', '5 Anywhere Street', 14, '2004-01-10', 'Houston Rockets');
 
 INSERT into BasketballPlayer_PlaysFor(BP_Id, age, value_over_replacement_player, player_efficiency_rating, box_plus_minus, points_per_game, assist_per_game, steals_per_game, rebounds_per_game, three_point_attempt_rate, weight, field_goal_percentage, height, win_shares, years_played, name, BT_Name) values (21870, 25, 1.5, 12.1, 1.4, 23.7, 3.8, 4.1, 6.4, 8.9, 110.2, 50.3, 195.9, 3.0, 5, 'Kawhi Leonard', 'Los Angeles Clippers');
 INSERT into BasketballPlayer_PlaysFor(BP_Id, age, value_over_replacement_player, player_efficiency_rating, box_plus_minus, points_per_game, assist_per_game, steals_per_game, rebounds_per_game, three_point_attempt_rate, weight, field_goal_percentage, height, win_shares, years_played, name, BT_Name) values (89014, 27, 1.5, 24.1, 1.4, 27.7, 3.8, 3.1, 9.4, 8.9, 115.2, 45.3, 200.1, 3.0, 7, 'Mitchell Robinson', 'New York Knicks');
