@@ -323,7 +323,7 @@
                                 // output data of each row
                                 // test
                                 while ($row = $result->fetch_assoc()) {
-                                    echo "test";
+                                    echo $row["BT_Name"];
                                 }
                             } else {
                                 echo "0 results";
