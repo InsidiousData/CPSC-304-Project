@@ -150,15 +150,13 @@
                 }
                 if (isset($_POST['joinSubmit'])) {
                     $BT_Name = $_POST['TeamName'];
-                    $sql = "SELECT b.BT_Name AS team, b.BT_Total_wins AS wins, p.BP_ID AS id, b.BT_Total_losses AS loss, p.name AS p_name, p.age AS age,
-                     h.HC_Name AS head, h.HC_Start_Date AS start 
-            FROM BasketballTeam b INNER JOIN BasketballPlayer_PlaysFor p ON p.BT_Name = b.BT_Name INNER JOIN HeadCoach h ON h.BT_Name = b.BT_Name
+                    $sql = "SELECT b.BT_Name AS team, b.BT_Total_wins AS wins, b.BT_Total_losses AS loss, p.name AS p_name, p.age AS age, h.HC_Name AS head 
+            FROM BasketballTeam b INNER JOIN BasketballPlayer_PlaysFor p ON p.BT_Name = b.BT_Name INNER JOIN HeadCoach h ON h.BT_Name = p.BT_Name
             WHERE b.BT_Name = '$BT_Name'";
                     $result = $link->query($sql);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo "Player Name: " . $row["p_name"] . "....Player Age: " . $row["age"] . "....Player ID: " . $row["id"] . "....Head Coach: " . $row["head"]
-                                . "....Head Coach Start: " . $row["start"] . "....Team: " . $row["team"] .
+                            echo "Player Name: " . $row["p_name"] . "....Player Age: " . $row["age"] . "....Head Coach: " . $row["head"] . "....Team: " . $row["team"] .
                                 "....Team Total Wins: " . $row["wins"] . "....Team Total Losses: "  . $row["loss"] . "<br>";
                         }
                     } else {
@@ -262,11 +260,6 @@
                         <hr />
 
 
-
-                        <h2>Find BasketballPlayer with the Highest Points per Game in a Team </h2>
-
-                        <hr />
-
                         <h2>Find BasketballPlayer with the Points per Game higher than the average points per Team</h2>
 
                         <form method="POST" action="test.php">
@@ -280,18 +273,18 @@
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
                         if (isset($_POST['HighSubmit'])) {
-                            $sql = "SELECT max, BT_Name, name
-    FROM ( SELECT MAX(points_per_game) as max, BT_Name, name
-           FROM basketballplayer_playsfor
-           GROUP BY BT_Name)as a
-            ORDER BY max DESC;";
+                            $sql = "SELECT points_per_game, BT_Name, name
+                            FROM basketballplayer_playsfor 
+                            WHERE points_per_game > (SELECT AVG(points_per_game) FROM basketballplayer_playsfor) 
+                            GROUP BY BT_Name
+                            ORDER BY points_per_game DESC;";
                             $result = $link->query($sql);
 
                             if ($result->num_rows > 0) {
                                 $MYCUSTOMTAB = '     ';
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . ".........Points per game: " . $row["max"] . "<br>";
+                                    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . ".........Points per game: " . $row["points_per_game"] . "<br>";
                                 }
                             } else {
                                 echo "0 results";
@@ -321,7 +314,7 @@
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    echo $row["BT_Name"];
+                                    echo "test";
                                 }
                             } else {
                                 echo "0 results";
@@ -329,10 +322,10 @@
                         }
                         mysqli_close($link);
                         ?>
-
+                        
                         <hr />
 
-
+                        
                         <h2>Current Basketball Teams Avaliable:</h2>
 
                         <?php
