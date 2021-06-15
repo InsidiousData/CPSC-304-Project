@@ -321,6 +321,7 @@
                             $result = $link->query($sql);
                             if ($result->num_rows > 0) {
                                 // output data of each row
+                                // test
                                 while ($row = $result->fetch_assoc()) {
                                     echo "test";
                                 }
