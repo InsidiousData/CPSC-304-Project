@@ -222,6 +222,7 @@ Contract_Length INTEGER,
 BP_Id INTEGER,
 PRIMARY KEY (Contract_Money, Contract_Length, BP_Id),
 FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+        ON DELETE CASCADE
 );
 
 INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Nike', '1950-09-12');

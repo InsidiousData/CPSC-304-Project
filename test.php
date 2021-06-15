@@ -36,7 +36,8 @@
             <input type="submit" value="Insert" name="insertSubmit"></p>
         </form>
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $pass = "blackpencil07";
+        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -87,7 +88,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -118,7 +119,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -144,7 +145,7 @@
             <input type="submit" value="Join" name="joinSubmit"></p>
             <form>
                 <?php
-                $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
                 if ($link === false) {
                     die("ERROR: Could not connect. " . mysqli_connect_error());
                 }
@@ -211,7 +212,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -244,7 +245,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -280,7 +281,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -313,7 +314,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
 
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -341,7 +342,7 @@
                         <h2>Current Basketball Teams Avaliable:</h2>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
 
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
