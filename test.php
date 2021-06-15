@@ -36,7 +36,7 @@
             <input type="submit" value="Insert" name="insertSubmit"></p>
         </form>
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -87,7 +87,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -118,7 +118,7 @@
         </form>
 
         <?php
-        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
         }
@@ -144,7 +144,7 @@
             <input type="submit" value="Join" name="joinSubmit"></p>
             <form>
                 <?php
-                $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
                 if ($link === false) {
                     die("ERROR: Could not connect. " . mysqli_connect_error());
                 }
@@ -170,23 +170,28 @@
 
                 <hr />
 
-                <h2>Find All Referees</h2>
+                <h2>Project Referee Information</h2>
                 <form method="POST" action="test.php">
+                    <select name=ref_option>
+                        <option value="R_ID">ID</option>}
+                        <option value="R_Name">Name</option>
+                        <option value="R_Age">Age</option>
+                    </select>
                     <input type="hidden" id="projectionRequest" name="projectionRequest">
                     <input type="submit" value="project" name="projectSubmit"></p>
                     <form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
                         if (isset($_POST['projectSubmit'])) {
-                            $sql = "SELECT R_Name FROM Referee";
+                            $sql = "SELECT " . $_POST["ref_option"] . " FROM Referee";
                             $result = $link->query($sql);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-                                    echo $row["R_Name"] . "<br>";
+                                    echo $row[$_POST["ref_option"]] . "<br>";
                                 }
                             } else {
                                 echo "0 results";
@@ -206,7 +211,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -239,7 +244,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -275,7 +280,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -308,7 +313,7 @@
                         </form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
 
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -336,7 +341,7 @@
                         <h2>Current Basketball Teams Avaliable:</h2>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "root", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
 
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
