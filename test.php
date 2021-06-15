@@ -268,7 +268,7 @@
                         <hr />
 
 
-                        <h2>Find BasketballPlayer with the Points per Game higher than the average points per Team</h2>
+                        <h2>For every team, Find a player with higher points per game than the average points per game of Basketball Players</h2>
 
                         <form method="POST" action="test.php">
                             <input type="hidden" id="HighNumberQueryRequest" name="HighNumberQueryRequest">
