@@ -36,7 +36,7 @@
             <input type="submit" value="Insert" name="insertSubmit"></p>
         </form>
         <?php
-        $pass = "blackpencil07";
+        $pass = "root";
         $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
         if ($link === false) {
             die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -183,7 +183,7 @@
                     <form>
 
                         <?php
-                        $link = mysqli_connect("localhost", "root", "blackpencil07", "cpsc304");
+                        $link = mysqli_connect("localhost", "root", $pass, "cpsc304");
                         if ($link === false) {
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
@@ -358,6 +358,29 @@
                         // Close connection
                         mysqli_close($link);
                         ?>
+                        <h2>Current Contracts:</h2>
+
+<?php
+$link = mysqli_connect("localhost", "root", $pass, "cpsc304");
+
+if ($link === false) {
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM has_a_contract";
+$result = $link->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        echo "BP_Id: " . $row["BP_Id"] . "......... Contract Amount: " . $row["Contract_Money"] ."<br>";
+    }
+} else {
+    echo "0 results";
+}
+// Close connection
+mysqli_close($link);
+?>
 
 
     </body>
