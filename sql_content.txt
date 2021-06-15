@@ -212,8 +212,8 @@ CREATE TABLE Plays_With(
 Player1_BP_Id INTEGER, 
 Player2_BP_Id INTEGER,
 PRIMARY KEY (Player1_BP_Id, Player2_BP_Id),
-FOREIGN KEY (Player1_BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id),
-FOREIGN KEY (Player2_BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
+FOREIGN KEY (Player1_BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id) ON DELETE CASCADE,
+FOREIGN KEY (Player2_BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id) ON DELETE CASCADE
 );
 
 CREATE TABLE Has_A_Contract(
@@ -221,8 +221,7 @@ Contract_Money INTEGER,
 Contract_Length INTEGER,  
 BP_Id INTEGER,
 PRIMARY KEY (Contract_Money, Contract_Length, BP_Id),
-FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id)
-        ON DELETE CASCADE
+FOREIGN KEY (BP_Id) REFERENCES BasketballPlayer_PlaysFor(BP_Id) ON DELETE CASCADE
 );
 
 INSERT into Sponsorship(S_Name, S_Founding_Date) values ('Nike', '1950-09-12');
