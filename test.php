@@ -267,7 +267,7 @@
                         <hr />
 
 
-                        <h2>For every team, Find a player with higher (points/assist/rebounds) than the (points/assist/rebounds) of Basketball Players</h2>
+                        <h2>For every team, Find a player with higher (points/assist/rebounds) than the average (points/assist/rebounds) of Basketball Players</h2>
 
                         <form method="POST" action="test.php">
                             
