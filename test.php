@@ -240,7 +240,6 @@
                         <form method="POST" action="test.php">
                             <input type="hidden" id="findNumberQueryRequest" name="findNumberQueryRequest">
                             BasketballTeam Name: <input type="text" name="BTName"> <br /><br />
-
                             <input type="submit" value="Find" name="findSubmit"></p>
                         </form>
 
@@ -268,11 +267,18 @@
                         <hr />
 
 
-                        <h2>For every team, Find a player with higher points per game than the average points per game of Basketball Players</h2>
+                        <h2>For every team, Find a player with higher (points/assist/rebounds) than the (points/assist/rebounds) of Basketball Players</h2>
 
                         <form method="POST" action="test.php">
+                            
+                            <select name=bp_option>
+                                <option value="points_per_game">points</option>}
+                                <option value="assist_per_game">assist</option>
+                                <option value="rebounds_per_game">rebounds</option>
+                            </select>
                             <input type="hidden" id="HighNumberQueryRequest" name="HighNumberQueryRequest">
                             <input type="submit" value="Find" name="HighSubmit"></p>
+                            
                         </form>
 
                         <?php
@@ -281,18 +287,18 @@
                             die("ERROR: Could not connect. " . mysqli_connect_error());
                         }
                         if (isset($_POST['HighSubmit'])) {
-                            $sql = "SELECT points_per_game, BT_Name, name
+                            $bp = $_POST['bp_option'];
+                            $sql = "SELECT $bp , BT_Name, name
                             FROM basketballplayer_playsfor 
-                            WHERE points_per_game > (SELECT AVG(points_per_game) FROM basketballplayer_playsfor) 
+                            WHERE $bp  > (SELECT AVG($bp) FROM basketballplayer_playsfor) 
                             GROUP BY BT_Name
-                            ORDER BY points_per_game DESC;";
+                            ORDER BY $bp  DESC;";
                             $result = $link->query($sql);
 
                             if ($result->num_rows > 0) {
-                                $MYCUSTOMTAB = '     ';
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . ".........Points per game: " . $row["points_per_game"] . "<br>";
+                                    echo "Team: " . $row["BT_Name"] . ".........Player: " . $row["name"] . "......... " . $bp . ": " . $row[$bp] . "<br>";
                                 }
                             } else {
                                 echo "0 results";
@@ -302,9 +308,10 @@
                         ?>
                         <hr />
 
-                        <h2>Find BasketballTeams which have played at every arena</h2>
+                        <h2>Check if BasketballTeam have played at every arena</h2>
                         <form method="POST" action="test.php">
                             <input type="hidden" id="DivisionQueryRequest" name="DivisionQueryRequest">
+                            BasketballTeam Name: <input type="text" name="BTNamediv"> <br /><br />
                             <input type="submit" value="Find" name="divideSubmit"></p>
                         </form>
 
@@ -316,17 +323,17 @@
                         }
 
                         if (isset($_POST['divideSubmit'])) {
-                            $sql = "SELECT B.BT_Name FROM BasketballTeam B WHERE NOT EXISTS ((SELECT A.A_Name, A.A_Location FROM Arena A) EXCEPT (SELECT P.A_Name, P.A_Location FROM Played P WHERE P.BT_Name = B.BT_Name))";
+                            $BTNamediv = $_POST['BTNamediv'];
+                            $sql = "SELECT c.BT_Name FROM BasketballTeam  c WHERE c.BT_Name = '$BTNamediv' AND c.BT_Name = (SELECT B.BT_Name FROM BasketballTeam B 
+                            WHERE NOT EXISTS ((SELECT A.A_Name, A.A_Location FROM Arena A) EXCEPT (SELECT P.A_Name, P.A_Location FROM Played P WHERE P.BT_Name = B.BT_Name)))";
 
                             $result = $link->query($sql);
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                // test
+                            if (!empty($result) && $result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-                                    echo $row["BT_Name"];
+                                    echo $row["BT_Name"] . " has played in every arena.";
                                 }
                             } else {
-                                echo "0 results";
+                                echo "Sorry, " . $BTNamediv . " has not played in every arena.";
                             }
                         }
                         mysqli_close($link);
